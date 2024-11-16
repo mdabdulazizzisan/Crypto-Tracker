@@ -6,7 +6,7 @@ fun constructUrl(url: String): String{
     val baseUrl = BuildConfig.BASE_URL
     return when{
         url.contains(baseUrl) -> url
-        url.startsWith("/") -> baseUrl + url.drop(0)
+        url.startsWith("/") -> baseUrl + url.drop(1)
         else -> baseUrl + url
     }
 }
