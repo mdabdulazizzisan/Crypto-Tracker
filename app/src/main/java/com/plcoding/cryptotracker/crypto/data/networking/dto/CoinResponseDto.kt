@@ -4,7 +4,6 @@ import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class CoinResponseDto(
-    @SerialName("data")
+data class CoinResponseDto(@SerialName("data")
     val listCoinDto: List<CoinDto>
 )
