@@ -28,6 +28,14 @@ class CoinListViewModel(
             CoinListState()
         )
 
+    fun onAction(action: CoinListAction){
+        when(action){
+            is CoinListAction.OnCoinClick ->{
+
+            }
+        }
+    }
+
     private fun loadCoins(){
         viewModelScope.launch {
             _state.update { it.copy(
