@@ -5,4 +5,5 @@
     <string name="error_internet">check your internet connection!</string>
     <string name="error_unknown">something went wrong, please try again later.</string>
     <string name="error_serialization_error">couldn\'t parse the json data</string>
+    <string name="market_cap">market cap</string>
 </resources>
