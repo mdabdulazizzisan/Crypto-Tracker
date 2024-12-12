@@ -1,10 +1,15 @@
 package com.plcoding.cryptotracker.crypto.presentation.coin_details
 
+import InfoCard
 import androidx.compose.foundation.background
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ExperimentalLayoutApi
+import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
@@ -18,18 +23,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewLightDark
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.plcoding.cryptotracker.R
 import com.plcoding.cryptotracker.crypto.presentation.coin_list.CoinListState
 import com.plcoding.cryptotracker.crypto.presentation.coin_list.components.previewCoin
 import com.plcoding.cryptotracker.crypto.presentation.models.toCoinUi
 import com.plcoding.cryptotracker.ui.theme.CryptoTrackerTheme
 
+@OptIn(ExperimentalLayoutApi::class)
 @Composable
 fun CoinDetailScreen(
     state: CoinListState,
@@ -76,6 +83,21 @@ fun CoinDetailScreen(
                 textAlign = TextAlign.Center,
                 color = contentColor
             )
+            FlowRow(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center
+            ) {
+                InfoCard(
+                    title = stringResource(id = R.string.market_cap),
+                    formattedText = "$ ${coin.marketCapUsd.formatted}",
+                    icon = ImageVector.vectorResource(R.drawable.stock)
+                )
+                InfoCard(
+                    title = stringResource(id = R.string.price),
+                    formattedText = "$ ${coin.priceUsd.formatted}",
+                    icon = ImageVector.vectorResource(R.drawable.dollar)
+                )
+            }
         }
     }
 }
